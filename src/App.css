@@ -1,38 +1,119 @@
+body {
+  background-color: #faf7f5;
+}
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  border: 1px solid #fbf8f6;
+  align-items: center;
+  margin: 100px auto;
+  background-color: #fbf8f6;
+  background-color: transparent;
+  min-width: 500px;
+  max-width: 500px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
+  backdrop-filter: blur(3px);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+/* .header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+} */
+
+.themes-container {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 40%;
+  margin: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.themes-container .palette {
+  font-size: 20px;
+  padding: 12px;
+  border-radius: 40%;
+  background-color: #200f29;
+  border: 2px solid #200f29;
+  cursor: pointer;
+  height: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.themes-container .palette .themes-icon {
+  color: #e0b0f8;
+  background-color: #200f29;
+  border: 1px solid #200f29;
+  font-size: 20px;
+  padding: 0 6px;
+  cursor: pointer;
+}
+.themes-container .themes {
+  margin-right: 10px;
+  font-size: large;
+  /* border: 1px solid #faf7f5; */
+  border-radius: 15px;
+  width: 200px;
+  box-shadow: 0 2px 2px 0 rgba(31, 38, 135, 0.3);
+}
+.themes-container .themes li {
+  padding: 10px;
+  list-style: none;
+  margin: 8px;
+}
+.themes-container .themes li:hover {
+  list-style: none;
+  background-color: gray;
+  border-radius: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 0;
+  padding: 10px;
+  color: #291334;
+}
+ul .task-items {
+  margin: 0;
+}
+.data-items {
+  /* border: 1px solid yellow; */
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+}
+.data-items .editbtn {
+  background-color: #67d49b;
+  border: 1px solid #67d49b;
+  border-radius: 20px;
+  padding: 13px;
+  font-size: 17px;
+  cursor: pointer;
+}
+.data-items .deltbtn {
+  background-color: #ec7071;
+  border: 1px solid #ec7071;
+  border-radius: 25px;
+  padding: 13px;
+  font-size: 17px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.data-items p {
+  display: flex;
+
+  margin-top: 20px;
+  float: left;
+}
+
+p {
+  list-style-type: none;
+  text-align: start;
+  margin-left: 10px;
 }

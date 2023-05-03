@@ -1,0 +1,13 @@
+.themes {
+  border: 1px solid green;
+  max-width: 20%;
+  /* float: right; */
+  margin-right: 100px;
+}
+.themes.themes-data {
+  border: 1px solid red;
+}
+
+.themes-palette {
+  background-color: yellow;
+}
