@@ -1,38 +1,31 @@
-import { FaPalette } from "react-icons/fa";
-import { useState } from "react";
-import "./App.css";
-import CreateTask from "./components/CreateTask";
+import React, { useState } from "react";
 import Task from "./components/Task";
+import CreateTask from "./components/CreateTask";
+import "./App.css";
 import Themes from "./components/Themes";
+import { FaPalette } from "react-icons/fa";
 
 function App() {
-  const [task, setTask] = useState([{ item: "text1" }]);
-  const [isShown, setIsShown] = useState(false);
+  let [task, setTask] = useState([{ item: "text1" }]);
+  let [isShown, setIsShown] = useState(false);
 
-  const addingTask = (item) => {
-    if (!item) return;
-    let newtTask = [...task, { item }];
-    setTask(newtTask);
+  const AddingTask = (t) => {
+    setTask(() => [...task, { item: t }]);
   };
 
-  const displayThemes = () => {
+  localStorage.setItem("tasks", JSON.stringify(task));
+
+  let storedData = localStorage.getItem("tasks")
+    ? JSON.parse(localStorage.getItem("tasks"))
+    : [];
+
+  const DisplayThemes = () => {
     // <ul>
     //   {themes.map((t) => {
     //     <Themes theme={t.theme} key={t.id} />;
     //   })}
-    // </ul>
 
-    setIsShown((current) => !current);
-  };
-
-  //remove item by  filtering out the item by id
-  const handleDelete = (task) => {
-    console.log(task);
-  };
-
-  //edit item
-  const handleEdit = (tv) => {
-    console.log("edt", tv);
+    setIsShown((currentState) => !currentState);
   };
   return (
     <div className="todo">
@@ -42,32 +35,23 @@ function App() {
           <Themes />
         </div>
         <div className="palette">
-          <button className="themes-icon" type="button" onClick={displayThemes}>
+          <button className="themes-icon" type="button" onClick={DisplayThemes}>
             <FaPalette />
           </button>
         </div>
       </div>
       <div className="container">
-        <h1 className="header"> React ToDo List</h1>
+        <h1 className="header"> React Todo List</h1>
         <div className="new-task-adder">
-          <CreateTask addTask={addingTask} />
+          <CreateTask addTask={AddingTask} />
         </div>
         <div className="task-items">
-          {task.map((t, id) => {
-            return (
-              <Task
-                task={t}
-                key={id}
-                id={id}
-                handleEdit={handleEdit}
-                handleDelete={handleDelete}
-              />
-            );
+          {storedData.map((data, id) => {
+            return <Task task={data} id={id} key={id} />;
           })}
         </div>
       </div>
     </div>
   );
 }
-
 export default App;

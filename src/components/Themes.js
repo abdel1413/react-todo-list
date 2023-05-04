@@ -15,11 +15,15 @@ function Themes() {
     { id: 11, theme: "night" },
   ];
 
+  const changeTheme = (html) => {
+    console.log("this them", html);
+  };
+
   return (
     <div className="themes-ul">
       {th.map((t) => {
         return (
-          <li className="themes-data" key={t.id}>
+          <li className="themes-data" key={t.id} onClick={changeTheme}>
             {t.theme}
           </li>
         );

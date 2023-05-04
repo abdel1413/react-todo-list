@@ -4,8 +4,11 @@ import DeleteButton from "./DeletButton";
 import { FaPenFancy } from "react-icons/fa";
 import { FaEraser } from "react-icons/fa";
 
-function Task({ task, id, handleEdit, handleDelete }) {
+function Task({ task, id }) {
   // const [task, index, editButton, deletBtn] = useState("");
+
+  const handleEdit = () => {};
+  const handleDelete = () => {};
 
   return (
     <div className="data-items">
