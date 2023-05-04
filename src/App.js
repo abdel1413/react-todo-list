@@ -6,18 +6,31 @@ import Themes from "./components/Themes";
 import { FaPalette } from "react-icons/fa";
 
 function App() {
-  let [task, setTask] = useState([{ item: "text1" }]);
+  let [task, setTask] = useState([]);
   let [isShown, setIsShown] = useState(false);
 
   const AddingTask = (t) => {
+    // let newTask = [...task, { item: t }];
+    // setTask(newTask);
     setTask(() => [...task, { item: t }]);
   };
 
+  //remove item by  filtering out the item by id
+  const handleDelete = (task) => {
+    console.log(task);
+  };
+
+  //edit item
+  const handleEdit = (tv) => {
+    console.log("edt", tv);
+  };
   localStorage.setItem("tasks", JSON.stringify(task));
 
   let storedData = localStorage.getItem("tasks")
     ? JSON.parse(localStorage.getItem("tasks"))
     : [];
+
+  console.log("store", storedData);
 
   const DisplayThemes = () => {
     // <ul>
