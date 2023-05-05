@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Task from "./components/Task";
 import CreateTask from "./components/CreateTask";
 import "./App.css";
@@ -9,11 +9,26 @@ function App() {
   let [task, setTask] = useState([]);
   let [isShown, setIsShown] = useState(false);
 
-  const AddingTask = (t) => {
-    // let newTask = [...task, { item: t }];
+  const AddingTask = (item) => {
+    let newTask = [...task, { item }];
     // setTask(newTask);
-    setTask(() => [...task, { item: t }]);
+    if (!item) {
+      alert("you must enter a task");
+      return;
+    } else {
+      //   return setTask(() => [...task, { item: t }]);
+
+      setTask(newTask);
+    }
+    localStorage.setItem("tasks", JSON.stringify(newTask));
   };
+
+  useEffect(() => {
+    let s = JSON.parse(localStorage.getItem("tasks"));
+    if (s) {
+      setTask(s);
+    }
+  }, []);
 
   //remove item by  filtering out the item by id
   const handleDelete = (task) => {
@@ -24,13 +39,10 @@ function App() {
   const handleEdit = (tv) => {
     console.log("edt", tv);
   };
-  localStorage.setItem("tasks", JSON.stringify(task));
 
-  let storedData = localStorage.getItem("tasks")
-    ? JSON.parse(localStorage.getItem("tasks"))
-    : [];
-
-  console.log("store", storedData);
+  //   let storedData = localStorage.getItem("tasks")
+  //     ? JSON.parse(localStorage.getItem("tasks"))
+  //     : [];
 
   const DisplayThemes = () => {
     // <ul>
@@ -38,8 +50,10 @@ function App() {
     //     <Themes theme={t.theme} key={t.id} />;
     //   })}
 
-    setIsShown((currentState) => !currentState);
+    //   setIsShown(current => !current)
+    setIsShown(!isShown);
   };
+
   return (
     <div className="todo">
       <div className="themes-container">
@@ -59,9 +73,10 @@ function App() {
           <CreateTask addTask={AddingTask} />
         </div>
         <div className="task-items">
-          {storedData.map((data, id) => {
+          {task.map((data, id) => {
             return <Task task={data} id={id} key={id} />;
           })}
+          {/* {<Task task={data} id={data.id} key={data.id} />} */}
         </div>
       </div>
     </div>

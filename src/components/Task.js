@@ -13,7 +13,7 @@ function Task({ task, id }) {
   return (
     <div className="data-items">
       {" "}
-      <p>{task.item}</p>
+      <p key={id}>{task.item}</p>
       <div className="edt-delt-div">
         {/* <EditButton onclick={() => handleEdit(id)} />
         <DeleteButton onclick={() => handleDelete(id)} /> */}

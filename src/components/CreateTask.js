@@ -7,6 +7,7 @@ function CreateTask({ addTask }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     addTask(value);
+    console.log("v", value);
     setValue("");
   };
 
@@ -19,8 +20,13 @@ function CreateTask({ addTask }) {
     setValue(e.target.value);
   };
 
-  const deletAll = (value) => {
-    console.log("value", value);
+  const deletAll = () => {
+    // let l = JSON.parse(localStorage.getItem("tasks"));
+    // console.log("l", l);
+    // localStorage.removeItem(l);
+
+    document.getElementsByClassName("task-items")[0].innerHTML = "";
+    localStorage.clear();
   };
 
   return (
@@ -32,6 +38,7 @@ function CreateTask({ addTask }) {
             name="inputtext"
             onChange={handleChanges}
             placeholder="Add a todo..."
+            value={value}
           />
           <button className="add-item" type="button" onClick={AddingTask}>
             {" "}
