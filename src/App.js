@@ -40,10 +40,6 @@ function App() {
     console.log("edt", tv);
   };
 
-  //   let storedData = localStorage.getItem("tasks")
-  //     ? JSON.parse(localStorage.getItem("tasks"))
-  //     : [];
-
   const DisplayThemes = () => {
     // <ul>
     //   {themes.map((t) => {

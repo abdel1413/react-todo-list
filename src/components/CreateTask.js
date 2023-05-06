@@ -21,10 +21,6 @@ function CreateTask({ addTask }) {
   };
 
   const deletAll = () => {
-    // let l = JSON.parse(localStorage.getItem("tasks"));
-    // console.log("l", l);
-    // localStorage.removeItem(l);
-
     document.getElementsByClassName("task-items")[0].innerHTML = "";
     localStorage.clear();
   };
