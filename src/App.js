@@ -30,16 +30,6 @@ function App() {
     }
   }, []);
 
-  //remove item by  filtering out the item by id
-  const handleDelete = (task) => {
-    console.log(task);
-  };
-
-  //edit item
-  const handleEdit = (tv) => {
-    console.log("edt", tv);
-  };
-
   const DisplayThemes = () => {
     // <ul>
     //   {themes.map((t) => {
