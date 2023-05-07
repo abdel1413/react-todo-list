@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaCheck } from "react-icons/fa";
 import "./CreateTask.css";
 
 function CreateTask({ addTask }) {
@@ -7,7 +8,7 @@ function CreateTask({ addTask }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     addTask(value);
-    console.log("v", value);
+    // console.log("v", value);
     setValue("");
   };
 
@@ -28,7 +29,7 @@ function CreateTask({ addTask }) {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="form-section">
           <input
             type="text"
             name="inputtext"
@@ -39,6 +40,13 @@ function CreateTask({ addTask }) {
           <button className="add-item" type="button" onClick={AddingTask}>
             {" "}
             +
+          </button>
+          <button
+            className="add-item fa-check"
+            type="button"
+            style={{ display: "none" }}
+          >
+            <FaCheck className="fa-check" />
           </button>
         </div>
       </form>

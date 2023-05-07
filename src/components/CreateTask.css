@@ -3,7 +3,10 @@
 } */
 
 form {
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  background-color: yellow;
 }
 form input {
   width: 75%;
@@ -17,6 +20,8 @@ form input {
 form button {
   width: 10%;
   margin: 5px;
+  float: right;
+  margin-right: 20px;
   padding: 10px 15px;
   border-radius: 20px;
   font-size: 25px;
@@ -24,6 +29,17 @@ form button {
   border: 1px solid #f171a0;
   cursor: pointer;
 }
+/* .fa-check {
+  width: 10%;
+  margin: 5px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 25px;
+  background-color: #f171a0;
+  border: 1px solid #f171a0;
+  cursor: pointer;
+  color: white;
+} */
 
 form button:hover {
   background-color: #e2598c;
@@ -46,4 +62,14 @@ form button:hover {
 .delete-all:hover {
   background-color: #e2598c;
   border: 1px solid #e2598c;
+}
+
+.fa-check {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  justify-content: center;
+  color: white;
+  padding: 8px 10px;
+  font-size: 15px;
 }

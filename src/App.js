@@ -12,6 +12,8 @@ function App() {
   const AddingTask = (item) => {
     let newTask = [...task, { item }];
     // setTask(newTask);
+    console.log("n t", newTask);
+
     if (!item) {
       alert("you must enter a task");
       return;
@@ -20,6 +22,8 @@ function App() {
 
       setTask(newTask);
     }
+
+    // console.log("new task", newTask);
     localStorage.setItem("tasks", JSON.stringify(newTask));
   };
 
