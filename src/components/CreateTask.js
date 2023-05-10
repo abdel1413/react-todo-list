@@ -37,7 +37,11 @@ function CreateTask({ addTask }) {
             placeholder="Add a todo..."
             value={value}
           />
-          <button className="add-item" type="button" onClick={AddingTask}>
+          <button
+            className="add-item fa-add"
+            type="button"
+            onClick={AddingTask}
+          >
             {" "}
             +
           </button>

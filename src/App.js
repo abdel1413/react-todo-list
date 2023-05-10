@@ -12,7 +12,6 @@ function App() {
   const AddingTask = (item) => {
     let newTask = [...task, { item }];
     // setTask(newTask);
-    console.log("n t", newTask);
 
     if (!item) {
       alert("you must enter a task");
