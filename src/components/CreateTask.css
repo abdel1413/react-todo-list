@@ -6,7 +6,7 @@ form {
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: yellow;
+  /* background-color: yellow; */
 }
 form input {
   width: 75%;

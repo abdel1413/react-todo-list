@@ -5,6 +5,20 @@ import "./App.css";
 import Themes from "./components/Themes";
 import { FaPalette } from "react-icons/fa";
 
+let th = [
+  { id: 1, theme: "cupcake" },
+  { id: 2, theme: "dark" },
+  { id: 3, theme: "light" },
+  { id: 4, theme: "bumblebee" },
+  { id: 5, theme: "synthwave" },
+  { id: 6, theme: " halloween" },
+  { id: 7, theme: "fantasy" },
+  { id: 8, theme: "dracula" },
+  { id: 9, theme: "aqua" },
+  { id: 10, theme: "luxury" },
+  { id: 11, theme: "night" },
+];
+
 function App() {
   let [task, setTask] = useState([]);
   let [isShown, setIsShown] = useState(false);
@@ -48,7 +62,7 @@ function App() {
       <div className="themes-container">
         <div className="themes" style={{ display: isShown ? "block" : "none" }}>
           {/* {isShown && <Themes />} */}
-          <Themes />
+          <Themes themes={th} />
         </div>
         <div className="palette">
           <button className="themes-icon" type="button" onClick={DisplayThemes}>

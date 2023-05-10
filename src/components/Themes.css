@@ -1,13 +1,74 @@
+:root {
+  --cupcake: #faf7f5;
+  --dark: #2a303c;
+  --light: #ffffff;
+  --bumblebee: #ffffff;
+  --synthwave: #2d1b69;
+  --halloween: #212121;
+  --fantasy: #ffffff;
+  --dracula: #272935;
+  --aqua: #335ca8;
+  --luxury: #09090b;
+  --night: #0f1729;
+}
+
 .themes {
   border: 1px solid green;
-  max-width: 20%;
-  /* float: right; */
+  max-width: 100%;
   margin-right: 100px;
+  cursor: pointer;
 }
 .themes.themes-data {
   border: 1px solid red;
 }
 
-.themes-palette {
+/* .themes-palette {
   background-color: yellow;
+} */
+
+.cupcake,
+h1,
+.container {
+  background-color: var(--cupcake);
+  color: #291334;
+}
+
+.dark {
+  background-color: var(--dark);
+}
+.light,
+.bumblebee,
+.fantasy {
+  background-color: var(--light);
+}
+
+.bumblebee {
+  background-color: var(--bumblebee);
+}
+
+.synthwave {
+  background-color: var(--synthwave);
+}
+
+.halloween {
+  background-color: var(--halloween);
+}
+
+.fantasy {
+  background-color: var(--fantasy);
+}
+.dracula {
+  background-color: var(--dracula);
+}
+
+.aqua {
+  background-color: var(--aqua);
+}
+
+.luxury {
+  background-color: var(--luxury);
+}
+
+.night {
+  background-color: var(--night);
 }

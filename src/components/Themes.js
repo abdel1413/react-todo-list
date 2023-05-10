@@ -1,29 +1,23 @@
-// import "./Themes.css";
+import "./Themes.css";
 
-function Themes() {
-  let th = [
-    { id: 1, theme: "cupcake" },
-    { id: 2, theme: "dark" },
-    { id: 3, theme: "light" },
-    { id: 4, theme: "bumblebee" },
-    { id: 5, theme: "synthwave" },
-    { id: 6, theme: " halloween" },
-    { id: 7, theme: "fantasy" },
-    { id: 8, theme: "dracula" },
-    { id: 9, theme: "aqua" },
-    { id: 10, theme: "luxury" },
-    { id: 11, theme: "night" },
-  ];
-
-  const changeTheme = (html) => {
-    console.log("this them", html);
+function Themes(props) {
+  let body = document.getElementsByTagName("body")[0];
+  const changeTheme = (body, t) => {
+    // body.classList.add(t.theme);
+    //body.className = `${t.theme}`;
+    body.setAttribute("class", `${t.theme}`);
+    console.log("class", body.attributes);
   };
 
   return (
     <div className="themes-ul">
-      {th.map((t) => {
+      {props.themes.map((t) => {
         return (
-          <li className="themes-data" key={t.id} onClick={changeTheme}>
+          <li
+            className="themes-data"
+            key={t.id}
+            onClick={() => changeTheme(body, t)}
+          >
             {t.theme}
           </li>
         );
