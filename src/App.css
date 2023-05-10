@@ -12,12 +12,14 @@ body {
   border: 1px solid #fbf8f6;
   align-items: center;
   margin: 100px auto;
-  background-color: #fbf8f6;
-  background-color: transparent;
+  /* background-color: #fbf8f6; */
+  padding: 20px;
+
   min-width: 500px;
   max-width: 500px;
   border-radius: 15px;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
+  background-color: transparent;
   backdrop-filter: blur(3px);
 }
 
@@ -80,8 +82,9 @@ h1 {
   padding: 10px;
   color: #291334;
 }
-ul .task-items {
+.task-items {
   margin: 0;
+  background-color: transparent;
 }
 .data-items {
   /* border: 1px solid yellow; */
@@ -92,7 +95,7 @@ ul .task-items {
   flex-direction: row;
   justify-content: space-between;
   margin: 10px;
-  /* background-color: yellow; */
+  background-color: transparent;
 }
 .data-items .editbtn {
   background-color: #67d49b;
@@ -122,4 +125,22 @@ p {
   list-style-type: none;
   text-align: start;
   margin-left: 10px;
+}
+
+.author-text {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 30px;
+  z-index: -1;
+}
+
+.author-text a,
+.author-text b {
+  text-decoration: none;
+  color: #291334;
+  font-weight: bolder;
 }

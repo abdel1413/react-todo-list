@@ -27,19 +27,85 @@
 } */
 
 .cupcake,
-h1,
-.container {
+h1 {
   background-color: var(--cupcake);
   color: #291334;
 }
 
-.dark {
+.dark,
+.dark input {
   background-color: var(--dark);
+  color: #a6adba;
+  border: 1px solid #af3888;
+  border-radius: 10px;
 }
-.light,
+
+.dark .header,
+.dark .container {
+  color: #a6adba;
+  background-color: #4a4e5a;
+  border: 1px solid #4a4e5a;
+  backdrop-filter: blur(3px);
+}
+
+.dark button,
+.light button {
+  background-color: #cc409d;
+  border: 1px solid #cc409d;
+  border-radius: 10px;
+}
+
+.dark .delete-all,
+.dark .fa-add,
+.light .delete-all,
+.light .fa-add {
+  color: #ffffff;
+}
+
+.dark .delete-all:hover,
+.light .delete-all:hover,
+.dark .fa-add:hover,
+.light .fa-add:hover {
+  background-color: #af3888;
+  border: 1px solid #af3888;
+}
+.dark .palette,
+.dark .palette .themes-icon,
+.light .palette,
+.light .palette .themes-icon {
+  background-color: #111318;
+  border-radius: 10px;
+  border: 1px solid #111318;
+  color: #a6adba;
+}
+
+.dark .editbtn,
+.light .editbtn,
+.dark .deltbtn,
+.light .deltbtn {
+  border-radius: 10px;
+}
+
+.dark .data-items {
+  /* margin: 10px 0; */
+  padding: 5px;
+  border-bottom: 0.1em solid #a6adba;
+  /* border: 1px solid black; */
+}
+.dark .author-text,
+.dark .author-text b {
+  color: #a6adba;
+}
+
+.dark .light,
 .bumblebee,
 .fantasy {
   background-color: var(--light);
+}
+
+.light input {
+  border: 1px solid #cc409d;
+  border-radius: 10px;
 }
 
 .bumblebee {

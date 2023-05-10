@@ -59,6 +59,19 @@ function App() {
 
   return (
     <div className="todo">
+      <div className="author-text">
+        <p>
+          Made with ❤️ by{" "}
+          <a
+            href="https://github.com/abdel1413/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {" "}
+            <b>Aboulaye Tchakoura</b>{" "}
+          </a>
+        </p>
+      </div>
       <div className="themes-container">
         <div className="themes" style={{ display: isShown ? "block" : "none" }}>
           {/* {isShown && <Themes />} */}
