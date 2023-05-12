@@ -4,6 +4,7 @@ import CreateTask from "./components/CreateTask";
 import "./App.css";
 import Themes from "./components/Themes";
 import { FaPalette } from "react-icons/fa";
+import AlertText from "./components/AlertText";
 
 let th = [
   { id: 1, theme: "cupcake" },
@@ -29,6 +30,7 @@ function App() {
 
     if (!item) {
       alert("you must enter a task");
+
       return;
     } else {
       //   return setTask(() => [...task, { item: t }]);

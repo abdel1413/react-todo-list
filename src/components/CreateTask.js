@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaCheck } from "react-icons/fa";
+import AlertText from "./AlertText";
 import "./CreateTask.css";
 
 function CreateTask({ addTask }) {
   const [value, setValue] = useState("");
+  const [alertMsg, setAlertMsg] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,7 +15,28 @@ function CreateTask({ addTask }) {
   };
 
   const AddingTask = () => {
+    if (!value) {
+      const alert = document.querySelector(".alert-msg");
+      alert.style.display = "block";
+      setTimeout(() => {
+        alert.style.display = "none";
+      }, 2000);
+
+      return;
+    }
+    // {!value && <AlertText />};
+    let successMsg = document.querySelector(".alert-success-msg");
+    let editbtn = document.querySelector(".editbtn");
+    console.log("e", editbtn.style.background);
+    console.log("ss", successMsg);
+    successMsg.style.display = "block";
+    successMsg.style.backgroundColor = `${editbtn.style.backgroundColor}`;
+    setTimeout(() => {
+      successMsg.style.display = "none";
+    }, 2000);
+
     addTask(value);
+
     setValue("");
   };
 
@@ -30,6 +53,12 @@ function CreateTask({ addTask }) {
     <>
       <form onSubmit={handleSubmit}>
         <div className="form-section">
+          <div className="alert-msg" style={{ display: "none" }}>
+            You have to enter a task
+          </div>
+          <div className="alert-success-msg" style={{ display: "none" }}>
+            Task added successfully
+          </div>
           <input
             type="text"
             name="inputtext"

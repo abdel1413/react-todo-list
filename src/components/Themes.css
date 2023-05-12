@@ -40,8 +40,10 @@
 .dark input {
   background-color: var(--dark);
   color: #a6adba;
-  border: 1px solid #af3888;
 }
+/* .dark input{
+   border: 1px solid #af3888;
+} */
 
 .dark .header,
 .dark .container {
@@ -475,10 +477,15 @@
   background-color: #182a4b;
   border: 1px solid #182a4b;
 }
+
+.luxury .container {
+  background-color: transparent;
+}
 .luxury .container {
   background-color: #2e2e2f;
   border: 1px solid #2e2e2f;
 }
+
 .luxury h1 {
   background-color: #2e2e2f;
   color: #dca54c;
@@ -506,10 +513,11 @@
   background-color: #121112;
   border: 1px solid #121112;
 }
-
+.luxury .author-text b,
 .luxury .palette .themes-icon {
   color: #dca54c;
 }
+
 /* End */
 /* night */
 
@@ -572,4 +580,5 @@
   background-color: #323949;
   border-radius: 10px;
 }
+
 /* End */
