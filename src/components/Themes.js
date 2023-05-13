@@ -6,7 +6,6 @@ function Themes(props) {
     // body.classList.add(t.theme);
     //body.className = `${t.theme}`;
     body.setAttribute("class", `${t.theme}`);
-    console.log("class", body.attributes);
   };
 
   return (

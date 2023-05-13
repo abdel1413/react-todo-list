@@ -42,6 +42,9 @@ function App() {
     localStorage.setItem("tasks", JSON.stringify(newTask));
   };
 
+  const editingTask = () => {
+    console.log("task edited");
+  };
   useEffect(() => {
     let s = JSON.parse(localStorage.getItem("tasks"));
     if (s) {
@@ -88,7 +91,7 @@ function App() {
       <div className="container">
         <h1 className="header"> React Todo List</h1>
         <div className="new-task-adder">
-          <CreateTask addTask={AddingTask} />
+          <CreateTask addTask={AddingTask} editTask={editingTask} />
         </div>
         <div className="task-items">
           {task.map((data, id) => {

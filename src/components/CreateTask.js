@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { FaCheck } from "react-icons/fa";
+import AlertDeleted from "./AlertDataDeleted";
 import AlertText from "./AlertText";
+
 import "./CreateTask.css";
 
-function CreateTask({ addTask }) {
+function CreateTask({ addTask, editTask }) {
   const [value, setValue] = useState("");
-  const [alertMsg, setAlertMsg] = useState(false);
+
+  const alert = document.querySelector(".alert-msg");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,7 +19,6 @@ function CreateTask({ addTask }) {
 
   const AddingTask = () => {
     if (!value) {
-      const alert = document.querySelector(".alert-msg");
       alert.style.display = "block";
       setTimeout(() => {
         alert.style.display = "none";
@@ -27,10 +29,9 @@ function CreateTask({ addTask }) {
     // {!value && <AlertText />};
     let successMsg = document.querySelector(".alert-success-msg");
     let editbtn = document.querySelector(".editbtn");
-    console.log("e", editbtn.style.background);
-    console.log("ss", successMsg);
+    console.log("e", editbtn);
     successMsg.style.display = "block";
-    successMsg.style.backgroundColor = `${editbtn.style.backgroundColor}`;
+
     setTimeout(() => {
       successMsg.style.display = "none";
     }, 2000);
@@ -44,8 +45,22 @@ function CreateTask({ addTask }) {
     setValue(e.target.value);
   };
 
+  const EditTask = () => {
+    console.log("editing task");
+    editTask(value);
+  };
   const deletAll = () => {
-    document.getElementsByClassName("task-items")[0].innerHTML = "";
+    let clearAll = document.getElementsByClassName("task-items")[0];
+
+    clearAll.innerHTML = "";
+    console.log("loc", JSON.parse(localStorage.getItem("tasks")));
+
+    alert.innerHTML = "All tasks cleared successfully";
+    alert.style.display = "block";
+    alert.style.backgroundColor = "#67D49B";
+    setTimeout(() => {
+      alert.style.display = "none";
+    }, 2000);
     localStorage.clear();
   };
 
@@ -59,6 +74,8 @@ function CreateTask({ addTask }) {
           <div className="alert-success-msg" style={{ display: "none" }}>
             Task added successfully
           </div>
+
+          <AlertDeleted />
           <input
             type="text"
             name="inputtext"
@@ -70,6 +87,7 @@ function CreateTask({ addTask }) {
             className="add-item fa-add"
             type="button"
             onClick={AddingTask}
+            style={{ display: "block" }}
           >
             {" "}
             +
@@ -78,11 +96,13 @@ function CreateTask({ addTask }) {
             className="add-item fa-check"
             type="button"
             style={{ display: "none" }}
+            onClick={EditTask}
           >
             <FaCheck className="fa-check" />
           </button>
         </div>
       </form>
+
       <button className="delete-all" type="button" onClick={deletAll}>
         Delete All
       </button>
