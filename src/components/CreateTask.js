@@ -6,6 +6,8 @@ import AlertText from "./AlertText";
 import "./CreateTask.css";
 
 function CreateTask({ addTask, editTask }) {
+  let plusB = document.querySelector(".fa-add");
+  let check = document.querySelector(".fa-check");
   const [value, setValue] = useState("");
 
   const alert = document.querySelector(".alert-msg");
@@ -37,7 +39,6 @@ function CreateTask({ addTask, editTask }) {
     }, 2000);
 
     addTask(value);
-
     setValue("");
   };
 
@@ -48,20 +49,31 @@ function CreateTask({ addTask, editTask }) {
   const EditTask = () => {
     console.log("editing task");
     editTask(value);
+    setValue("");
+    plusB.style.display = "block";
+    check.style.display = "none";
   };
+
   const deletAll = () => {
     let clearAll = document.getElementsByClassName("task-items")[0];
 
-    clearAll.innerHTML = "";
-    console.log("loc", JSON.parse(localStorage.getItem("tasks")));
-
-    alert.innerHTML = "All tasks cleared successfully";
-    alert.style.display = "block";
-    alert.style.backgroundColor = "#67D49B";
-    setTimeout(() => {
-      alert.style.display = "none";
-    }, 2000);
-    localStorage.clear();
+    if (clearAll.innerHTML === "") {
+      alert.innerHTML = "No task to clear";
+      alert.style.display = "block";
+      alert.style.backgroundColor = "#EC7071";
+      setTimeout(() => {
+        alert.style.display = "none";
+      }, 2000);
+    } else {
+      clearAll.innerHTML = "";
+      alert.innerHTML = "All tasks cleared successfully";
+      alert.style.display = "block";
+      alert.style.backgroundColor = "#67D49B";
+      setTimeout(() => {
+        alert.style.display = "none";
+      }, 2000);
+      localStorage.clear();
+    }
   };
 
   return (

@@ -29,8 +29,6 @@ function App() {
     // setTask(newTask);
 
     if (!item) {
-      alert("you must enter a task");
-
       return;
     } else {
       //   return setTask(() => [...task, { item: t }]);
@@ -42,8 +40,15 @@ function App() {
     localStorage.setItem("tasks", JSON.stringify(newTask));
   };
 
-  const editingTask = () => {
-    console.log("task edited");
+  const editingTask = (t) => {
+    let updated = [...task];
+    let updatedTask;
+    for (let i of updated) {
+      if (i === t) {
+        updatedTask.replace(i, t);
+      }
+    }
+    //  setTask(updatedTask);
   };
   useEffect(() => {
     let s = JSON.parse(localStorage.getItem("tasks"));
